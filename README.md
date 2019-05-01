@@ -13,7 +13,7 @@ https://boxstarter.org/Learn/WebLauncher
 The script code is organized in a hierarchy
 
 **Recipes**
-A recipe is the script you run.  It calls multiple helper scripts.  These currently live in the root of the project (dev_app.ps1, dev_webnodejs.ps1, etc.) 
+A recipe is the script you run.  It calls multiple helper scripts.  These currently live in the root of the project (dev_app.ps1, dev_webnodejs.ps1, etc.)
 
 **Helper Scripts**: A helper script performs setup routines that may be useful by many recipes. Recipes call helper scripts (you don't run helper scripts directly).  The helper scripts live in the **scripts** folder
 
@@ -45,23 +45,24 @@ To run a recipe script, click a link in the table below from your target machine
 |<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/Microsoft/windows-dev-box-setup-scripts/master/devops_azure.ps1'>DevOps Azure</a>| Client setup for DevOps with Azure      |
 |     | Xamarin (Visual Studio, Xamarin, Android SDK) |
 |     | Containers (Docker, Kubernetes, etc...)        |
+|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/escalonn/windows-dev-box-setup-scripts/master/nick.ps1'>Nick</a>| |
 |     | Submit a PR with a recommended configuration!        |
 
-**Notes:**  
-1. If you are using WSL there's a followup step we recommend after running the setup script.  When the script finishes you will only have a root user with a blank password. You should  manually create a non-root user via `$ sudo adduser [USERNAME] sudo` 
+**Notes:**
+1. If you are using WSL there's a followup step we recommend after running the setup script.  When the script finishes you will only have a root user with a blank password. You should  manually create a non-root user via `$ sudo adduser [USERNAME] sudo`
 with a non-blank password. Use this user going forward. For more info on WSL please refer to the [documentation](https://docs.microsoft.com/en-us/windows/wsl/about).
 2. If you're a Node.js contributor working on Node.js core, please see the [Node.js Bootstrapping Guide](https://github.com/nodejs/node/tree/master/tools/bootstrap) or [click here to run](http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter).
 
 ## Known issues
 - The Boxstarter ClickOnce installer does not work when using Chrome.  This issue is being tracked [here](https://github.com/chocolatey/boxstarter/issues/345). Please use Edge to run the ClickOnce installer.
-- Reboot is not always logging you back in to resume the script.  This is being tracked [here](https://github.com/chocolatey/boxstarter/issues/318).  The workaround is to login manually and the script will continue running. 
+- Reboot is not always logging you back in to resume the script.  This is being tracked [here](https://github.com/chocolatey/boxstarter/issues/318).  The workaround is to login manually and the script will continue running.
 - There have been reports of Windows 1803 not successfully launching Boxstarter via the web launcher. See this issue for details: https://github.com/chocolatey/boxstarter/issues/301
 
 ## Working with Chocolatey in an organization?
 As an organization, you may not be keen to reach out to the internet. That's fine as with just a few modifications you can still take advantage of these scripts. Visit the [organizational use page](ORGANIZATION.md) to learn how.
 
 ## Working in education?
-In a classroom setting it's a great idea to give your students a recipe script so they can all get setup quickly and reliably. You can modify your recipe script to include downloading course materials and sample projects.  To do this, start by forking this project and follow the instructions [here](#you-may-want-to-customize-the-scripts). 
+In a classroom setting it's a great idea to give your students a recipe script so they can all get setup quickly and reliably. You can modify your recipe script to include downloading course materials and sample projects.  To do this, start by forking this project and follow the instructions [here](#you-may-want-to-customize-the-scripts).
 
 ## Don't have administrative access?
 Are you in an environment where you don't have any administrative access on your machine? No problem, you can still take advantage of Chocolatey and manage "portable" software. You can also use a VM where you may have administrative access (see next section).
