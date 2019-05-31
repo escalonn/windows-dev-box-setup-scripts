@@ -31,7 +31,7 @@ Disable-GameBarTips
 Disable-BingSearch
 Enable-RemoteDesktop
 
-choco upgrade IIS-ManagementConsole IIS-WebServer -y --source="'windowsfeatures'"
+choco install IIS-ManagementConsole IIS-WebServer -y --source="'windowsfeatures'"
 
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
 RefreshEnv
@@ -60,7 +60,8 @@ choco upgrade f.lux -y
 choco upgrade fiddler -y
 choco upgrade firefox -y
 choco upgrade git -y --params="'/GitAndUnixToolsOnPath /NoShellIntegration'"
-choco upgrade googlechromebeta -y
+choco upgrade googlechrome -y
+choco upgrade googlechromebeta -y --pre
 choco upgrade gyazo -y
 choco upgrade javaruntime -y
 choco upgrade kdiff3 -y
