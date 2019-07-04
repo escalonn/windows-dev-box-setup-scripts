@@ -50,7 +50,6 @@ choco upgrade azure-cli -y
 choco upgrade batterybar -y
 choco upgrade beyondcompare -y
 choco upgrade ccleaner -y
-choco upgrade conemu -y
 choco upgrade docfx -y
 choco upgrade docker-for-windows -y
 choco upgrade dotnetcore-sdk -y
