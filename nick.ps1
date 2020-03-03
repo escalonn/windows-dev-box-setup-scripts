@@ -43,35 +43,36 @@ RefreshEnv
 
 choco upgrade visualstudio2019community -y --params="'--add Component.GitHub.VisualStudio'"
 
-choco upgrade 7zip -y
+choco upgrade 7zip.install -y
 choco upgrade adobereader -y
 choco upgrade awscli -y
 choco upgrade azure-cli -y
-choco upgrade batterybar -y
+# choco upgrade batterybar -y
 choco upgrade beyondcompare -y
 choco upgrade ccleaner -y
+choco upgrade discord.install -y
 choco upgrade docfx -y
-choco upgrade docker-for-windows -y
-choco upgrade dotnetcore-sdk -y
+choco upgrade docker-desktop -y
 choco upgrade dotnetcore-windowshosting -y
-choco upgrade dropbox -y
-choco upgrade f.lux -y
+choco upgrade f.lux.install -y
 choco upgrade fiddler -y
+choco upgrade firacode -y
 choco upgrade firefox -y
-choco upgrade git -y --params="'/GitAndUnixToolsOnPath /NoShellIntegration'"
+choco upgrade git.install -y --params="'/GitAndUnixToolsOnPath /NoShellIntegration'"
 choco upgrade googlechrome -y
-choco upgrade googlechromebeta -y --pre
 choco upgrade gyazo -y
 choco upgrade javaruntime -y
 choco upgrade kdiff3 -y
 choco upgrade kubernetes-cli -y
 choco upgrade libreoffice-fresh -y
-choco upgrade nodejs -y
+choco upgrade nodejs.install -y
 choco upgrade postman -y
-choco upgrade pwsh -y
+choco upgrade powershell-core -y
 choco upgrade python2 -y
+choco upgrade python3 -y
 choco upgrade slack -y
 choco upgrade sql-server-management-studio -y
+choco upgrade steam -y
 choco upgrade visualstudio2019-workload-azure -y
 choco upgrade visualstudio2019-workload-data -y
 choco upgrade visualstudio2019-workload-manageddesktop -y
@@ -79,8 +80,10 @@ choco upgrade visualstudio2019-workload-netcoretools -y
 choco upgrade visualstudio2019-workload-netweb -y
 choco upgrade visualstudio2019-workload-node -y
 choco upgrade webdeploy -y
+choco upgrade windirstat -y
 choco upgrade winmerge -y
 choco upgrade wsl -y
+choco upgrade yarn -y
 
 #--- reenabling critical items ---
 Enable-UAC
