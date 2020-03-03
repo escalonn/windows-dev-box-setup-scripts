@@ -21,6 +21,11 @@ function executeScript {
 	iex ((new-object net.webclient).DownloadString("$helperUri/$script"))
 }
 
+# Workaround choco / boxstarter path too long error
+# https://github.com/chocolatey/boxstarter/issues/241
+$ChocoCachePath = "$env:USERPROFILE\AppData\Local\Temp\chocolatey"
+New-Item -Path $ChocoCachePath -ItemType Directory -Force
+
 #--- Setting up Windows ---
 executeScript "SystemConfiguration.ps1";
 executeScript "FileExplorerSettings.ps1";
@@ -41,49 +46,48 @@ RefreshEnv
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-community
 # https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio#list-of-workload-ids-and-component-ids
 
-choco upgrade visualstudio2019community -y --params="'--add Component.GitHub.VisualStudio'"
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019community -y --params="'--add Component.GitHub.VisualStudio'"
 
-choco upgrade 7zip.install -y
-choco upgrade adobereader -y
-choco upgrade awscli -y
-choco upgrade azure-cli -y
-# choco upgrade batterybar -y
-choco upgrade beyondcompare -y
-choco upgrade ccleaner -y
-choco upgrade discord.install -y
-choco upgrade docfx -y
-choco upgrade docker-desktop -y
-choco upgrade dotnetcore-windowshosting -y
-choco upgrade f.lux.install -y
-choco upgrade fiddler -y
-choco upgrade firacode -y
-choco upgrade firefox -y
-choco upgrade git.install -y --params="'/GitAndUnixToolsOnPath /NoShellIntegration'"
-choco upgrade googlechrome -y
-choco upgrade gyazo -y
-choco upgrade javaruntime -y
-choco upgrade kdiff3 -y
-choco upgrade kubernetes-cli -y
-choco upgrade libreoffice-fresh -y
-choco upgrade nodejs.install -y
-choco upgrade postman -y
-choco upgrade powershell-core -y
-choco upgrade python2 -y
-choco upgrade python3 -y
-choco upgrade slack -y
-choco upgrade sql-server-management-studio -y
-choco upgrade steam -y
-choco upgrade visualstudio2019-workload-azure -y
-choco upgrade visualstudio2019-workload-data -y
-choco upgrade visualstudio2019-workload-manageddesktop -y
-choco upgrade visualstudio2019-workload-netcoretools -y
-choco upgrade visualstudio2019-workload-netweb -y
-choco upgrade visualstudio2019-workload-node -y
-choco upgrade webdeploy -y
-choco upgrade windirstat -y
-choco upgrade winmerge -y
-choco upgrade wsl -y
-choco upgrade yarn -y
+choco upgrade --cacheLocation="$ChocoCachePath" 7zip.install -y
+choco upgrade --cacheLocation="$ChocoCachePath" adobereader -y
+choco upgrade --cacheLocation="$ChocoCachePath" awscli -y
+choco upgrade --cacheLocation="$ChocoCachePath" azure-cli -y
+choco upgrade --cacheLocation="$ChocoCachePath" beyondcompare -y
+choco upgrade --cacheLocation="$ChocoCachePath" ccleaner -y
+choco upgrade --cacheLocation="$ChocoCachePath" discord.install -y
+choco upgrade --cacheLocation="$ChocoCachePath" docfx -y
+choco upgrade --cacheLocation="$ChocoCachePath" docker-desktop -y
+choco upgrade --cacheLocation="$ChocoCachePath" dotnetcore-windowshosting -y
+choco upgrade --cacheLocation="$ChocoCachePath" f.lux.install -y
+choco upgrade --cacheLocation="$ChocoCachePath" fiddler -y
+choco upgrade --cacheLocation="$ChocoCachePath" firacode -y
+choco upgrade --cacheLocation="$ChocoCachePath" firefox -y
+choco upgrade --cacheLocation="$ChocoCachePath" git.install -y --params="'/GitAndUnixToolsOnPath /NoShellIntegration'"
+choco upgrade --cacheLocation="$ChocoCachePath" googlechrome -y
+choco upgrade --cacheLocation="$ChocoCachePath" gyazo -y
+choco upgrade --cacheLocation="$ChocoCachePath" javaruntime -y
+choco upgrade --cacheLocation="$ChocoCachePath" kdiff3 -y
+choco upgrade --cacheLocation="$ChocoCachePath" kubernetes-cli -y
+choco upgrade --cacheLocation="$ChocoCachePath" libreoffice-fresh -y
+choco upgrade --cacheLocation="$ChocoCachePath" nodejs.install -y
+choco upgrade --cacheLocation="$ChocoCachePath" postman -y
+choco upgrade --cacheLocation="$ChocoCachePath" powershell-core -y
+choco upgrade --cacheLocation="$ChocoCachePath" python2 -y
+choco upgrade --cacheLocation="$ChocoCachePath" python3 -y
+choco upgrade --cacheLocation="$ChocoCachePath" slack -y
+choco upgrade --cacheLocation="$ChocoCachePath" sql-server-management-studio -y
+choco upgrade --cacheLocation="$ChocoCachePath" steam -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-azure -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-data -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-manageddesktop -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-netcoretools -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-netweb -y
+choco upgrade --cacheLocation="$ChocoCachePath" visualstudio2019-workload-node -y
+choco upgrade --cacheLocation="$ChocoCachePath" webdeploy -y
+choco upgrade --cacheLocation="$ChocoCachePath" windirstat -y
+choco upgrade --cacheLocation="$ChocoCachePath" winmerge -y
+choco upgrade --cacheLocation="$ChocoCachePath" wsl -y
+choco upgrade --cacheLocation="$ChocoCachePath" yarn -y
 
 #--- reenabling critical items ---
 Enable-UAC
